@@ -1,6 +1,7 @@
 <template>
   <div class="icons">
     <swiper>
+      <!-- 迭代二维数组，子数组中的元素数目就是icon数目 -->
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -23,11 +24,11 @@ export default {
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
         desc: '景点门票景点门票景点门票'
       },
-      // {
-      //   id: '0002',
-      //   imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-      //   desc: '一日游'
-      // },
+      {
+        id: '0002',
+        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
+        desc: '一日游'
+      },
       {
         id: '0003',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/4c/eac47dd8def8de02.png',
@@ -67,6 +68,7 @@ export default {
     }
   },
   computed: {
+    // 通过一个空列表迭代iconList 中icon数量，制造二维数组，根据二维数组来判断一个swiper 有几个元素
     pages () {
       const pages = []
       this.iconList.forEach((item, index) => {
@@ -83,9 +85,11 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+// 导入css文件格式 在build/webpack.base.conf resolve 中设置的相对路径
 @import '~styles/varibles.styl';
 @import '~styles/mixin.styl';
 
+// >>> 指定.icons 下面 .swiper-container 的样式
 .icons >>> .swiper-container {
   height: 0;
   padding-bottom: 50%;
@@ -124,6 +128,7 @@ export default {
     line-height: 0.44rem;
     text-align: center;
     color: $darkTextColor;
+    // 当文本输入多个时显示... 在mixin中配置
     ellipsis()
   }
 }
