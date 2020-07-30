@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <!-- 迭代二维数组，子数组中的元素数目就是icon数目 -->
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
@@ -19,6 +19,10 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
+      swiperOption: {
+        loop: false,
+        autoplay: false
+      },
       iconList: [{
         id: '0001',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
@@ -95,41 +99,45 @@ export default {
   padding-bottom: 50%;
 }
 
-.icon {
-  position: relative;
-  overflow: hidden;
-  float: left;
-  height: 0;
-  width: 25%;
-  padding-bottom: 25%;
+.icons {
+  margin-top: 0.1rem;
 
-  .icon-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0.44rem;
-    box-sizing: border-box;
-    padding: 0.1rem;
+  .icon {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    height: 0;
+    width: 25%;
+    padding-bottom: 25%;
 
-    .icon-img-content {
-      display: block;
-      margin: 0 auto;
-      height: 100%;
+    .icon-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0.44rem;
+      box-sizing: border-box;
+      padding: 0.1rem;
+
+      .icon-img-content {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+      }
     }
-  }
 
-  .icon-desc {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0.44rem;
-    line-height: 0.44rem;
-    text-align: center;
-    color: $darkTextColor;
-    // 当文本输入多个时显示... 在mixin中配置
-    ellipsis()
+    .icon-desc {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0.44rem;
+      line-height: 0.44rem;
+      text-align: center;
+      color: $darkTextColor;
+      // 当文本输入多个时显示... 在mixin中配置
+      ellipsis();
+    }
   }
 }
 </style>
