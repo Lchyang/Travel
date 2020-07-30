@@ -3,7 +3,7 @@
     <div class="title">周末去哪</div>
     <ul>
       <!-- boder-bottom 一像素的底部边框 -->
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <!-- src 不能用url -->
         <div class="item-img-swapper">
           <img class="item-img" :src="item.imgUrl" />
@@ -19,34 +19,11 @@
 <script>
 export default {
   name: 'HomeWeekend',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-          title: '故宫',
-          desc: '世界五大宫之首，穿越与您近在咫尺世界五大宫之首，穿越与您近在咫尺'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-          title: '故宫',
-          desc: '世界五大宫之首，穿越与您近在咫尺世界五大宫之首，穿越与您近在咫尺'
-        },
-        {
-          id: '0003',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-          title: '故宫',
-          desc: '世界五大宫之首，穿越与您近在咫尺世界五大宫之首，穿越与您近在咫尺'
-        },
-        {
-          id: '0004',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg',
-          title: '故宫',
-          desc: '世界五大宫之首，穿越与您近在咫尺世界五大宫之首，穿越与您近在咫尺'
-        }
-      ]
     }
   }
 
@@ -56,7 +33,6 @@ export default {
 @import '~styles/mixin.styl';
 
 .title {
-  margin-top: 0.2rem;
   line-height: 0.8rem;
   background: #eee;
   text-indet: 0.2rem;
@@ -73,7 +49,6 @@ export default {
 
 .item-info {
   margin-top: .2rem;
-  margin-bottom: .1rem;
   padding: 0.1rem;
 
   .item-title {
