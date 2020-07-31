@@ -1,12 +1,13 @@
 <template>
-<div>
-  <city-header></city-header>
-  <city-search></city-search>
-  <city-list></city-list>
-  <city-alphabets></city-alphabets>
-</div>
+  <div>
+    <city-header></city-header>
+    <city-search></city-search>
+    <city-list :cities="cities" :hotcities="hotcities"></city-list>
+    <city-alphabets :cities="cities"></city-alphabets>
+  </div>
 </template>
 <script>
+import axios from 'axios'
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/List'
@@ -19,8 +20,30 @@ export default {
     CityList,
     CityAlphabets
 
+  },
+  data () {
+    return {
+      cities: {},
+      hotcities: []
+    }
+  },
+  methods: {
+    getCityInfo () {
+      axios.get('/api/city.json')
+        .then(this.getCityInfoSuss)
+    },
+    getCityInfoSuss (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        this.cities = res.data.cities
+        this.hotcities = res.data.hotCities
+      }
+    }
+  },
+  // 在这发起后端请求，拿回数据，配合路由钩子做一些事情,钩子函数
+  mounted () {
+    this.getCityInfo()
   }
 }
 </script>
-<style lang="stylus" coped>
-</style>
+<style lang="stylus" coped></style>
