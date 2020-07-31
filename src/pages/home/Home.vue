@@ -51,6 +51,7 @@ export default {
       }
     }
   },
+  // 在这发起后端请求，拿回数据，配合路由钩子做一些事情,钩子函数
   mounted () {
     this.getHomeInfo()
   }
