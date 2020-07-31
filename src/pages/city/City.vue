@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities="cities" :hotcities="hotcities"></city-list>
-    <city-alphabets :cities="cities"></city-alphabets>
+    <city-list :cities="cities" :hotcities="hotcities" :letter="letter"></city-list>
+    <city-alphabets :cities="cities" @change="handleLetterClick"></city-alphabets>
   </div>
 </template>
 <script>
@@ -24,7 +24,8 @@ export default {
   data () {
     return {
       cities: {},
-      hotcities: []
+      hotcities: [],
+      letter: ''
     }
   },
   methods: {
@@ -38,6 +39,9 @@ export default {
         this.cities = res.data.cities
         this.hotcities = res.data.hotCities
       }
+    },
+    handleLetterClick (letter) {
+      this.letter = letter
     }
   },
   // 在这发起后端请求，拿回数据，配合路由钩子做一些事情,钩子函数
