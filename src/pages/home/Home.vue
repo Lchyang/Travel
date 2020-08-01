@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 父组件给子组件传值 -->
-    <home-header :city="city"></home-header>
+    <home-header></home-header>
     <home-swiper :list="swipperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
     <home-recommend :list="recommendList"></home-recommend>
@@ -43,7 +43,6 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.city = data.city
         this.swipperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList
