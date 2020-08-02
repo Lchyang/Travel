@@ -59,7 +59,7 @@ export default {
         }, 6)
       }
     },
-    handelTouchEnd () {
+    handleTouchEnd () {
       this.touchStatus = false
     }
   }
