@@ -57,7 +57,7 @@ export default {
   .swapper {
     background: #fff;
     height: 0;
-    padding-bottom: 68.5%;
+    padding-bottom: 100%;
     width: 100%;
 
     .gallary-img {
@@ -66,7 +66,7 @@ export default {
 
     .swiper-pagination {
       color: #fff;
-      bottom: -3rem;
+      bottom: -2rem;
     }
   }
 }

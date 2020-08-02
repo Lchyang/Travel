@@ -9,7 +9,6 @@
         <detail-list :list="item.children"></detail-list>
       </div>
     </div>
-    <div class="blank"></div>
   </div>
 </template>
 <script>
@@ -22,9 +21,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.blank {
-  height: 40rem;
-}
 
 .item-title {
   line-height: 0.8rem;
