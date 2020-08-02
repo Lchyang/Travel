@@ -8,7 +8,6 @@
         <div class="iconfont header-back">&#xe611;</div>
       </router-link>景点详情
     </div>
-    <div class="blank"></div>
   </div>
 </template>
 <script>
@@ -48,10 +47,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl';
 
-.blank {
-  height: 50rem;
-}
-
 .detail-header-back {
   position: absolute;
   left: 0.2rem;
@@ -71,6 +66,7 @@ export default {
 }
 
 .detail-header {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
