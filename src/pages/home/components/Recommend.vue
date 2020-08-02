@@ -3,7 +3,13 @@
     <div class="title">热门推荐</div>
     <ul>
       <!-- boder-bottom 一像素的底部边框 -->
-      <li class="item border-bottom" v-for="item of list" :key="item.id">
+      <router-link
+        tag="li"
+        class="item border-bottom"
+        v-for="item of list"
+        :key="item.id"
+        :to="'/detail/' + item.id"
+      >
         <!-- src 不能用url -->
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
@@ -11,7 +17,7 @@
           <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
