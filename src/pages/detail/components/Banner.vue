@@ -5,15 +5,19 @@
       <div class="banner-info">
         <div class="banner-title">{{sightName}}</div>
         <div class="banner-number">
-          <span class="iconfont banner-icon">&#xe635;</span>{{gallaryImgs.length}}
+          <span class="iconfont banner-icon">&#xe635;</span>
+          {{gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary v-if="showGallary" @change="handleGallaryChange" :imgs="gallaryImgs"></common-gallary>
+    <fade-animation>
+      <common-gallary v-if="showGallary" @change="handleGallaryChange" :imgs="gallaryImgs"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/Fade'
 export default {
   name: 'DetailBanner',
   data () {
@@ -28,7 +32,8 @@ export default {
 
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   methods: {
     handleBannerClick () {

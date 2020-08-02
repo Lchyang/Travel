@@ -2,7 +2,9 @@
   <div>
     <detail-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></detail-banner>
     <detail-header></detail-header>
-    <detail-list :list="list"></detail-list>
+    <div class="blank">
+      <detail-list :list="list"></detail-list>
+    </div>
   </div>
 </template>
 <script>
@@ -50,4 +52,8 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.blank {
+  height: 20rem;
+}
+</style>

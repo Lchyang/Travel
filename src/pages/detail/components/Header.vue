@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     scrollWindow () {
-      const top = document.documentElement.scrollTop
+      const top = document.documentElement.scrollTop || document.body.scrollTop || window.pageXOffset
       if (top > 50) {
         let opacity_ = top / 140
         opacity_ = opacity_ > 1 ? 1 : opacity_
@@ -35,10 +35,10 @@ export default {
       console.log()
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.scrollWindow)
   },
-  deactivated () {
+  destroyed () {
     window.removeEventListener('scroll', this.scrollWindow)
   }
 
