@@ -23,8 +23,8 @@ export default {
       swiperOptions: {
         pagination: '.swiper-pagination',
         paginationType: 'fraction',
-        observeParents: true,
-        observe: true
+        observe: true,
+        observeParents: true
 
       }
     }

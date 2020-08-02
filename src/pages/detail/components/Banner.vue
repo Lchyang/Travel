@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <common-gallary v-show="showGallary" @change="handleGallaryChange" :imgs="imgss"></common-gallary>
+    <common-gallary v-if="showGallary" @change="handleGallaryChange" :imgs="imgss"></common-gallary>
   </div>
 </template>
 <script>
