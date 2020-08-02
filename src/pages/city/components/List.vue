@@ -7,7 +7,7 @@
         <div class="button-list">
           <div class="button-swapper">
             <router-link to="/">
-              <div class="button" @click="handleClick(this.currentCity)">{{this.currentCity}}</div>
+              <div class="button">{{this.currentCity}}</div>
             </router-link>
           </div>
         </div>
